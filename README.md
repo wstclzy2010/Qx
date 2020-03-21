@@ -1,1 +1,1 @@
-自用quantumultX复写配置
+自用quantumultX复写配置rewrite.conf
