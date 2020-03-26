@@ -1,2 +1,3 @@
-自用quantumultX复写配置rewrite.conf
-test
+自用quantumultX复写配置
+Unlock脚本配置rewrite.conf
+获取Ck脚本配置Get_cookie.conf
