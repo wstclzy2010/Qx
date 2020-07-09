@@ -29,3 +29,30 @@ int main()也是一个函数，int main
 如果要构造一个字符串，用数组；如果要处理一个字符串，用指针。
 常见错误：char *string；scanf("%s\n", string); //string没有初始化为0；
   
+*********2020.07.08*********
+***10.2.2字符串函数：strlen
+size_t的全称应该是size type，就是说“一种用来记录大小的数据类型”;size_t是标准C库中定义的，在64位系统中为long long unsigned int，非64位系统中为long unsigned int。
+size_t类型通常用于循环、数组索引、大小的存储和地址运算。
+
+***10.2.3字符串函数：strcmp
+
+***10.2.4字符串函数：strcpy
+char *dst=(char*)malloc(strlen(src)+1)
+
+***10.2.4字符串函数：strcat
+char *strcat(char *restrict s1, const char *restrict s2); //把s2拷贝到s1的后面，接成一个长的字符串；返回是s1；s1必须具有足够的空间。
+防止操作时，字符串数组越界，有如下安全版本：char* strncpy(char *restrict dst, const char *restrict src, size_t n); char* strncat(char *restrict s1, const char *restrict s2, size_t n);
+
+***10.2.6字符串函数：搜索字符
+strchr：在字符串中寻找单个字符；strstr
+
+*********2020.07.09*********
+***11.1.1枚举
+常量符号化：用符号而不是具体的数字来表示程序中的数字；
+用枚举而不是定义独立的const int变量；枚举用enum（enumeration）；声明枚举量的时候可以指定值；
+
+***11.2.1结构：结构类型
+
+
+
+
