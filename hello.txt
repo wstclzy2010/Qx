@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 today wh 2020.08.
-=======
-today wh 2020.08.
->>>>>>> 3814a04683151fa5365e82df6a19977df6260784
 test test
 success
