@@ -27,3 +27,42 @@
                                 2）获取url传值的方法:getint()或者getstring()
 
 7、删除功能的实现       js代码（删除前询问是否确认！！！） 软件友好度
+
+
+
+
+---------------------------------------------------------------------------------------------
+beego支持用户定义视图函数：{{.content|FuncName}} // .content为后台传输的数据，作为视图函数的参数；
+相应的在后台要有函数的定义：func hello(in string) (out string){
+    out=in+"world"
+    return
+}
+然后在main函数中给这两个名字做映射，就能调用:beego.AddFuncMap("FuncName",hello)
+
+视图的if-else比较语法：
+{{if compare .FirstPage true}}
+    <li> 上一页 </li>
+{{else}}
+    <li><a href="/">上一页</li>
+{{end}}
+
+--主外键关系
+constraint FK_主表_从表 foreign(外键字段) references 主表(主表主键字段)
+
+文章类型和文章表为一对多关系
+创建表映射关系：文章表中增加类型字段 并设置 'orm:"rel(fk)"' //设置外键 //此字段会出现在文章表中！
+               类型表中增加文章字段，并设置 'orm:"reverse(many)"' //注意此字段不会在该表中出现！
+                reverse和rel必须成对出现；
+
+一对多：加外键
+多对多：额外会加一张关系表！ //rel(m2m)
+
+分页功能实现：
+1、确定出每页显示多少条记录；
+2、计算出总的记录count，err := o.QueryTable("Article").Count()
+3、根据1和2，可以求出总页数：结合float型 做除法，并借助天花板函数ceil()，向上取整；
+    qs.All() //拿到所有记录；
+    limit(pagesize,start)//第一个参数为页面大小，第二个参数为起始位置（对应记录index）；
+4、实现首页末页功能：首先把当前页码传递给视图this.Data，然后对数据处理(上一页，页码-1，下一页，页码+1)；
+5、实现上一页，下一页功能：首页 末页的上一页 下一页细节处理————用视图函数和视图判断语法。
+
