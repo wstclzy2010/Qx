@@ -61,8 +61,20 @@ constraint FK_主表_从表 foreign(外键字段) references 主表(主表主键
 1、确定出每页显示多少条记录；
 2、计算出总的记录count，err := o.QueryTable("Article").Count()
 3、根据1和2，可以求出总页数：结合float型 做除法，并借助天花板函数ceil()，向上取整；
-    qs.All() //拿到所有记录；
+    _,err :=o.QueryTable("Article").qs.All(&articles) //拿到所有记录，存入articles切片；
     limit(pagesize,start)//第一个参数为页面大小，第二个参数为起始位置（对应记录index）；
 4、实现首页末页功能：首先把当前页码传递给视图this.Data，然后对数据处理(上一页，页码-1，下一页，页码+1)；
 5、实现上一页，下一页功能：首页 末页的上一页 下一页细节处理————用视图函数和视图判断语法。
 
+
+
+获取添加型业务：
+1、获取数据；
+2、判断数据；
+3、执行插入操作；
+4、展示视图：1）this.Tplname; 2)this.Redirect("/....",302)；
+
+
+多表查询：
+注意orm使用的是惰性查询，如何避免：RelatedSel("ArticleType") //关联起来，如果没有这句，即使Filter了也不会去查ArticleType表！！！！
+o.QueryTable("Articles").RelatedSel("ArticleType").Filter("ArticleType__TypeName", typeName).All(&articles)
