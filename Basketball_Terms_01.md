@@ -69,3 +69,6 @@ swingman：摇摆人（指兼能担任得分后卫及小前锋的球员）
 trainer：球队训练员
 two-guard：得分后卫
 veteran：资深球员，老鸟（球员）老运动员（NBA非常重视veteran，各球队都把自己的veteran视作一笔财富，veteran这个词在NBA出现的几率是非常高的）
+
+### Reference
+https://culturalbility.com/comprehensive-basketball-terms-english-chinese/
